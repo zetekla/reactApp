@@ -1,32 +1,15 @@
 import React from 'react';
 
-class App extends React.Component {
+export default class App extends React.Component {
 	constructor(){
 		super();
 
 		this.state = {
-			data:
-			[
-        {
-           "id":1,
-           "name":"Foo",
-           "age":"20"
-        },
-
-        {
-           "id":2,
-           "name":"Bar",
-           "age":"30"
-        },
-
-        {
-           "id":3,
-           "name":"Baz",
-           "age":"40"
-        }
-      ]
-		}
+       header: "Header from state...",
+       "content": "Content from state..."
+    }
 	}
+
 
   render() {
    		var int = 1;
@@ -36,16 +19,19 @@ class App extends React.Component {
          color: '#FF0000'
       }
 
+      var Olive = {
+         fontSize: 100,
+         color: 'Olive'
+      }
+
       return (
 
          <div>
 						<span>{int == 1 ? 'True!' : 'False'}</span>
-						<h1 style = {myStyle}>Main page</h1>
-						<table>
-							<tbody>
-                {this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
-             	</tbody>
-           </table>
+						<h1 style = {Olive}>Main page</h1>
+						<h1 style = {myStyle}>{this.props.immutableData}</h1>
+						<h1>{this.state.header}</h1>
+            <h2>{this.state.content}</h2>
          </div>
 
       );
@@ -63,5 +49,3 @@ class TableRow extends React.Component {
 		);
 	}
 }
-
-export default App;
