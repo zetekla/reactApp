@@ -14,6 +14,7 @@ export default class App extends React.Component {
       this.updateState  	= this.updateState.bind(this);
       this.onClickEvent 	= this.onClickEvent.bind(this);
       this.ClickFromChild = this.ClickFromChild.bind(this);
+      this.clearInput 		= this.clearInput.bind(this);
 
    };
 
@@ -29,12 +30,18 @@ export default class App extends React.Component {
    	this.setState({data: 'Data updated <= a Child Component!'})
    }
 
+   clearInput() {
+      this.setState({data: ''});
+      ReactDOM.findDOMNode(this.refs.myInput).focus();
+   }
+
    render() {
       return (
          <div>
             <input type = "text" value = {this.state.data}
-               onChange = {this.updateState} />
+               onChange = {this.updateState} ref = "myInput"/>
             <button onClick = {this.onClickEvent}>CLICK</button>
+            <button onClick = {this.clearInput}>CLEAR</button>
             <h4>{this.state.data}</h4>
             <span style={{color:'Red'}}>{this.state.invincible}</span>
             <br/>
