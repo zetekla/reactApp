@@ -1,4 +1,5 @@
 import React from 'react';
+// import PropsValidation from './PropsValidation.jsx';
 
 export default class App extends React.Component {
 	constructor(props){
@@ -15,12 +16,12 @@ export default class App extends React.Component {
    		var int = 1;
 
    		var myStyle = {
-         fontSize: 100,
+         fontSize: 17,
          color: '#FF0000'
       }
 
       var Olive = {
-         fontSize: 100,
+         fontSize: 22,
          color: 'Olive'
       }
 
