@@ -1,5 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import Content    from './components/Content';
 // import PropsValidation from './PropsValidation.jsx';
 
 export default class App extends React.Component {
@@ -38,15 +39,4 @@ export default class App extends React.Component {
          </div>
       );
    }
-}
-
-class Content extends React.Component {
-	render() {
-	  return (
-	     <div>
-	     		<div>{this.props.componentData.component}</div>
-          <div>{this.props.componentData.id}</div>
-	     </div>
-	  );
-	}
 }
