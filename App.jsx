@@ -1,10 +1,17 @@
+<<<<<<< Updated upstream
 import React      from 'react';
 import ReactDOM   from 'react-dom';
 import Content    from './components/Content';
+=======
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Home from './components/Home';
+import Content from './components/Content';
+>>>>>>> Stashed changes
 // import PropsValidation from './PropsValidation.jsx';
 
 export default class App extends React.Component {
-	constructor(props) {
+   constructor(props) {
       super(props);
 
       this.state = {
@@ -25,6 +32,7 @@ export default class App extends React.Component {
                id: 3
             }
          ],
+         getName: function() { return 'Pristine'},
          invincible: this.props.immutableData
       }
    }
@@ -32,9 +40,13 @@ export default class App extends React.Component {
    render() {
       return (
          <div>
-            <div>
+            <div>my name is {this.state.getName()}</div>
+            <div id="#AppComponentId">
                {this.state.data.map((dynamicComponent, i) => <Content
                   key = {i} componentData = {dynamicComponent}/>)}
+            </div>
+            <div id="HomeComponent">
+               <Home />
             </div>
          </div>
       );
