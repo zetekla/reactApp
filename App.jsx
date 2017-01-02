@@ -1,42 +1,44 @@
 import React      from 'react';
-import ReactDOM   from 'react-dom';
-import Content    from './components/Content';
-// import PropsValidation from './PropsValidation.jsx';
+import {Link} from 'react-router';
 
-export default class App extends React.Component {
-	constructor(props) {
-      super(props);
+class App extends React.Component {
+  render() {
+    return(
+      <div>
+      <ul>
+      <li><Link to="home">Home</Link></li>
+      <li><Link to="about">About</Link></li>
+      <li><Link to="contact">Contact</Link></li>
+      </ul>
 
-      this.state = {
-         data:
-         [
-            {
-               component: 'First...',
-               id: 1
-            },
+      {this.props.children}
+      </div>
+    )
+  }
+}
 
-            {
-               component: 'Second...',
-               id: 2
-            },
+export default App;
 
-            {
-               component: 'Third...',
-               id: 3
-            }
-         ],
-         invincible: this.props.immutableData
-      }
-   }
+export class Home extends React.Component {
+  render() {
+    return (
+      <h1>Home Page Content</h1>
+    )
+  }
+}
 
-   render() {
-      return (
-         <div>
-            <div>
-               {this.state.data.map((dynamicComponent, i) => <Content
-                  key = {i} componentData = {dynamicComponent}/>)}
-            </div>
-         </div>
-      );
-   }
+export class About extends React.Component {
+  render() {
+    return (
+      <h1>About Page Content</h1>
+    )
+  }
+}
+
+export class Contact extends React.Component {
+  render()  {
+    return (
+      <h1>Contact Page Content</h1>
+    )
+  }
 }
