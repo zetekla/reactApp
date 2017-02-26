@@ -1,67 +1,32 @@
 import React from 'react';
 
 class App extends React.Component {
-	constructor(){
-		super();
+   constructor(){
+      super();
+      this.firstname = "Will";
+      this.lastname = "Smith";
+      this.email = "wills@gmail.com";
+      this.redStyle= {fontsize:100, color:'red'};
+      this.blueStyle= {fontsize:100, color:'blue'};
 
-		this.state = {
-			data:
-			[
-        {
-           "id":1,
-           "name":"Foo",
-           "age":"20"
-        },
+      // boolean variable
+      this.toggle = false;
+   }
 
-        {
-           "id":2,
-           "name":"Bar",
-           "age":"30"
-        },
-
-        {
-           "id":3,
-           "name":"Baz",
-           "age":"40"
-        }
-      ]
-		}
-	}
-
-  render() {
-   		var int = 1;
-
-   		var myStyle = {
-         fontSize: 100,
-         color: '#FF0000'
-      }
-
+   render() {
       return (
-
          <div>
-						<span>{int == 1 ? 'True!' : 'False'}</span>
-						<h1 style = {myStyle}>Main page</h1>
-						<table>
-							<tbody>
-                {this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
-             	</tbody>
-           </table>
-         </div>
+            <h1>It's {this.firstname}</h1>
+            <h2 style={this.toggle ? this.redStyle : this.blueStyle}>
+               It's {this.lastname}
+            </h2>
+            <h3>It's {this.email}</h3>
 
+
+            <p data-myattribute = "somevalue">This is the content!!!</p>
+         </div>
       );
    }
-}
-
-class TableRow extends React.Component {
-	render() {
-		return (
-			<tr>
-				<td>{this.props.data.id}</td>
-				<td>{this.props.data.name}</td>
-				<td>{this.props.data.age}</td>
-			</tr>
-		);
-	}
 }
 
 export default App;
