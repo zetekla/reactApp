@@ -1,6 +1,6 @@
 import React from 'react';
 
-class App extends React.Component {
+export default class App extends React.Component {
    constructor(){
       super();
       this.firstname = "Will";
@@ -16,17 +16,13 @@ class App extends React.Component {
    render() {
       return (
          <div>
-            <h1>It's {this.firstname}</h1>
+            <h1>It is {this.firstname}</h1>
             <h2 style={this.toggle ? this.redStyle : this.blueStyle}>
-               It's {this.lastname}
+               It is {this.lastname}
             </h2>
-            <h3>It's {this.email}</h3>
-
-
+            <h3>It is {this.email}</h3>
             <p data-myattribute = "somevalue">This is the content!!!</p>
          </div>
       );
    }
 }
-
-export default App;
