@@ -19,8 +19,11 @@ export default class App extends React.Component {
   }
    clearInput(r) {
     this.setState ({data: r.target.value})
-    console.log(this.refs.myContent);
-    ReactDOM.findDOMNode(this.refs.myContent.refs.myInput).focus();
+    //console.log(this.refs.myContent);
+    //solution1: ReactDOM.findDOMNode(this.refs.myContent.refs.myInput).focus();
+    //solution2 <not using ref, but use 'id' attr
+    var myInput = document.getElementById('textInputId');
+    ReactDOM.findDOMNode(myInput).focus();
    }
 
   render() {
@@ -41,7 +44,7 @@ class Content extends React.Component{
     return (
       <div>
         <input type = "text" value = {this.props.abc}
-          onChange = {this.props.updateXYZ} ref="myInput"/>
+          onChange = {this.props.updateXYZ} ref="myInput" id="textInputId"/>
         <button onClick= {this.props.clearInput} > CLEAR </button>
         <h4> {this.props.abc} </h4>
       </div>

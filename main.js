@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App2 from './App2.jsx';
 import App3 from './App3.jsx';
 
-ReactDOM.render(<App3
+ReactDOM.render(<App2
 
 								/>, document.getElementById('app'));
 
