@@ -5,3 +5,6 @@ import App2 from './App2.jsx';
 ReactDOM.render(<App2
 
 								/>, document.getElementById('app'));
+
+setTimeout(()=> {
+ReactDOM.unmountComponentAtNode(document.getElementById('app'));	},1000000)
