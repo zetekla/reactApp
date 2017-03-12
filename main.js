@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App2 from './App2.jsx';
+import App3 from './App3.jsx';
 
-ReactDOM.render(<App2
+ReactDOM.render(<App3
 
 								/>, document.getElementById('app'));
 
