@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addTodo } from './actions/actions'
 
-export default class Todo extends React.Component {
-   render() {
-      return (
-         <div>
-            <h1>Todo...</h1>
-         </div>
-      )
+import AddTodo from './AddTodo.jsx'
+import TodoList from './TodoList.jsx'
+
+class Todo extends React.Component {
+	render() {
+    const { dispatch, visibleTodos } = this.props
+
+    return (
+       <div>
+
+          <AddTodo
+             onAddClick = {text =>
+             dispatch(addTodo(text))}
+          />
+
+          <TodoList todos = {visibleTodos}/>
+
+       </div>
+    )
+  }
+}
+
+function select(state) {
+   return {
+      visibleTodos: state.todos
    }
 }
+
+export default connect(select)(Todo)
