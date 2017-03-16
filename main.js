@@ -1,6 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App.jsx';
-// import PropsValidation from './PropsValidation.jsx';
+import React from 'react'
 
-ReactDOM.render(<App immutableData ="look, I'm a props and I'm invincible!"/>, document.getElementById('app'));
+import { render } from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import App from './App.jsx'
+import todoApp from './reducers/reducers'
+
+let store = createStore(todoApp)
+
+let rootElement = document.getElementById('app')
+
+render(
+
+   <Provider store = {store}>
+      <App />
+   </Provider>,
+
+   rootElement
+)

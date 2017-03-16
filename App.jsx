@@ -1,42 +1,33 @@
-import React      from 'react';
-import ReactDOM   from 'react-dom';
-import Content    from './components/Content';
-// import PropsValidation from './PropsValidation.jsx';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addTodo } from './actions/actions'
 
-export default class App extends React.Component {
-	constructor(props) {
-      super(props);
+import AddTodo from './components/AddTodo.jsx'
+import TodoList from './components/TodoList.jsx'
 
-      this.state = {
-         data:
-         [
-            {
-               component: 'First...',
-               id: 1
-            },
-
-            {
-               component: 'Second...',
-               id: 2
-            },
-
-            {
-               component: 'Third...',
-               id: 3
-            }
-         ],
-         invincible: this.props.immutableData
-      }
-   }
-
+class App extends Component {
    render() {
+      const { dispatch, visibleTodos } = this.props
+
       return (
          <div>
-            <div>
-               {this.state.data.map((dynamicComponent, i) => <Content
-                  key = {i} componentData = {dynamicComponent}/>)}
-            </div>
+
+            <AddTodo
+               onAddClick = {text =>
+               dispatch(addTodo(text))}
+            />
+
+            <TodoList todos = {visibleTodos}/>
+
          </div>
-      );
+      )
    }
 }
+
+function select(state) {
+   return {
+      visibleTodos: state.todos
+   }
+}
+
+export default connect(select)(App)
