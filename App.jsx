@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from './actions/actions'
 
-import AddTodo from './components/AddTodo.jsx'
-import TodoList from './components/TodoList.jsx'
+import AddTodo from './components/AddTodo'
+import TodoList from './components/TodoList'
 
 class App extends Component {
    render() {

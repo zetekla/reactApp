@@ -16,9 +16,12 @@ function todo(state, action) {
 }
 
 function todos(state = [], action) {
+   // console.log('todos', action.type);
+
    switch (action.type) {
 
       case ADD_TODO:
+         console.log(state);
          return [
             ...state,
             todo(undefined, action)
