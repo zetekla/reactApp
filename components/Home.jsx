@@ -26,6 +26,8 @@ export default class Home extends React.Component {
           }
        ],
        domains: [],
+       domainId: null,
+       domain: null,
        invincible: this.props.route.immutableData,
        getName: function () {
        		return 'Pristine';
@@ -35,16 +37,26 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     $.getJSON("../assets/domains.json")
-    .then(json =>this.setState({domains: json.domains, name: json.name}))
+    .then(json =>{
+      json.domains.forEach((v,k)=>v.domainId = k+1)
+      this.setState({domains: json.domains})
+    })
     .catch(error =>this.setState({ error }))
+  }
+
+  handleDomainClick(domain){
+    console.log(domain);
+    this.setState({ domainId: domain.domainId, domain: domain });
+  }
+
+  handleButtonClick(){
+    this.setState({ domainId: null, domain: null });
   }
 
 	render() {
 	  return (
 	     <div>
 	        <h1>Home...</h1>
-
-          <div>{this.state.name}</div>
           <br/>
 
 	        <div>
@@ -65,8 +77,14 @@ export default class Home extends React.Component {
                   </tr>
               </thead>
               <tbody>
-               {this.state.domains.map((domain, i) => <DomainListing
-                  key = {i} domain = {domain}/>)}
+               {this.state.domains.map((domain, i) =>
+                  <DomainListing
+                    selected={domain.id===this.state.domainId}
+                    key = {domain.domainId}
+                    domain = {domain}
+                    onClick = { () => {this.handleDomainClick(domain)} }
+                  />)
+                }
               </tbody>
             </table>
           </div>

@@ -1,17 +1,25 @@
 import React from 'react';
+import Filter from './Filter';
 
-export default class DomainListing extends React.Component {
-	render() {
-	  return (
-      <tr>
-          <td style={{color:'green'}}>
-          	<a href={this.props.domain.id}>
-          		{this.props.domain.domain}
-          	</a>
-          </td>
-          <td><input type="checkbox" name="selected"></input></td>
-          <td>{this.props.domain.price}</td>
-      </tr>
-	  );
-	}
+const DomainListing = props => {
+  const classes = props.selected ? 'bold' : '';
+  const isChecked = /\.cars|\.lol/.test(props.domain.domain)
+
+  return (
+    <tr>
+        <td style={{color:'green'}} onClick={ props.onClick } className={classes}>
+      		{props.domain.domain}
+        </td>
+        <td>
+          <div>
+            {isChecked &&
+              <input type="checkbox" name="selected" checked={isChecked} readOnly></input>
+            }
+          </div>
+        </td>
+        <td>{Filter(props.domain.price)}</td>
+    </tr>
+  );
 }
+
+export default DomainListing
