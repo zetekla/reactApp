@@ -1,7 +1,8 @@
-import React from 'react';
-import Content    from './Content';
-import $          from 'jquery';
-import DomainListing          from './DomainListing';
+import React              from 'react';
+import Content            from './Content';
+import $                  from 'jquery';
+import DomainListing      from './DomainListing';
+import DomainView         from './DomainView';
 
 export default class Home extends React.Component {
 	constructor(props) {
@@ -88,6 +89,14 @@ export default class Home extends React.Component {
               </tbody>
             </table>
           </div>
+
+          <div>
+          { this.state.domain ?
+            <DomainView domain = {this.state.domain} onSubmit={this.handleSubmit}/>
+            : null
+          }
+          </div>
+          <button onClick={() => this.handleButtonClick()}>Save changes</button>
 
 					<div>
 						<h5>greeting from {this.state.getName()}!</h5>
