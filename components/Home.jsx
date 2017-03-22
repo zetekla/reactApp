@@ -36,7 +36,7 @@ export default class Home extends React.Component {
   componentDidMount() {
     $.getJSON("../assets/domains.json")
     .then(json =>this.setState({domains: json.domains, name: json.name}))
-    .catch(error =>this.setState({error: json.error}))
+    .catch(error =>this.setState({error: error}))
   }
 
 	render() {
@@ -56,8 +56,19 @@ export default class Home extends React.Component {
           <br/>
 
           <div>
-           {this.state.domains.map((domain, i) => <DomainListing
-              key = {i} domain = {domain}/>)}
+            <table className="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Domain name</th>
+                      <th>Uniregistry</th>
+                      <th>Price</th>
+                  </tr>
+              </thead>
+              <tbody>
+               {this.state.domains.map((domain, i) => <DomainListing
+                  key = {i} domain = {domain}/>)}
+              </tbody>
+            </table>
           </div>
 
 					<div>
