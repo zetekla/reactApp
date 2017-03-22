@@ -36,7 +36,7 @@ export default class Home extends React.Component {
   componentDidMount() {
     $.getJSON("../assets/domains.json")
     .then(json =>this.setState({domains: json.domains, name: json.name}))
-    .catch(error =>this.setState({error: error}))
+    .catch(error =>this.setState({ error }))
   }
 
 	render() {
