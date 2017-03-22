@@ -36,7 +36,7 @@ export default class Home extends React.Component {
     })
     .catch(error =>this.setState({ error }))
 
-    this.setState({ domainId: domain.domainId, domain: domain });
+    this.setState({ domainId: domain.domainId });
   }
 
   handleButtonClick(){
