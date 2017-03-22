@@ -10,9 +10,9 @@ import Contact    from './components/Contact';
 ReactDOM.render((
    <Router history = {browserHistory}>
       <Route path = "/" component = {App}>
-				<IndexRoute component = {Home} immutableData ="look, I'm a props and I'm invincible!"/>
+				<IndexRoute component = {Home}/>
 				<Route path = "home" component = {Home} />
-				<Route path = "about" component = {About} />
+				<Route path = "about" component = {About} immutableData ="look, I'm a props and I'm invincible!"/>
 				<Route path = "contact" component = {Contact} />
       </Route>
    </Router>

@@ -1,5 +1,4 @@
 import React              from 'react';
-import Content            from './Content';
 import $                  from 'jquery';
 import DomainListing      from './DomainListing';
 import DomainView         from './DomainView';
@@ -9,31 +8,10 @@ export default class Home extends React.Component {
     super(props);
 
     this.state = {
-       data:
-       [
-          {
-             component: 'First...',
-             id: 1
-          },
-
-          {
-             component: 'Second...',
-             id: 2
-          },
-
-          {
-             component: 'Third...',
-             id: 3
-          }
-       ],
        domains: [],
        domainId: null,
        domain: null,
-       error: null,
-       invincible: this.props.route.immutableData,
-       getName: function () {
-       		return 'Pristine';
-       }
+       error: null
     }
 	}
 
@@ -50,12 +28,11 @@ export default class Home extends React.Component {
   }
 
   handleDomainClick(domain){
-    console.log(domain.domainId);
+    console.log(domain);
     $.getJSON(`../assets/${domain.domainId}.json`)
     .then(json =>{
       domain.email = json.registrant_email;
-      console.log(domain.email);
-      this.setState({domain});
+      this.setState({ domain });
     })
     .catch(error =>this.setState({ error }))
 
@@ -117,22 +94,13 @@ export default class Home extends React.Component {
           { this.state.error ? <span className="alert alert-danger">{this.state.error}</span> : null }
           <br/>
           <br/>
-          <h1>Home...</h1>
-
-          <div>
-           {this.state.data.map((dynamicComponent, i) => <Content
-              key = {i} componentData = {dynamicComponent}/>)}
-          </div>
+          <h1>Demo...</h1>
           <br/>
           <br/>
 
           {
             this.state.domainId ? this.renderDetail() : this.renderDomains()
           }
-					<div>
-						<h5>greeting from {this.state.getName()}!</h5>
-						<span style={{color:'Red'}}>{this.state.invincible}</span>
-					</div>
 	     </div>
 	  )
 	}
