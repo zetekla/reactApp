@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router';
 
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
+
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
@@ -10,7 +12,7 @@ import {Home,About,Todo,Contact} from './App.jsx';
 
 import todoApp from './reducers/reducers'
 
-let store = createStore(todoApp)
+let store = createStore(todoApp);
 
 ReactDOM.render((
 	<div>
