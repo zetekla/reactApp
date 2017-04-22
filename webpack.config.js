@@ -27,6 +27,6 @@ var config = {
    resolve: {
     extensions: ['', '.js', '.jsx', '.es6', '.json', '.coffee'],
    }
-}
+};
 
 module.exports = config;
