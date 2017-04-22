@@ -38,7 +38,7 @@ PropsValidation.propTypes = {
    propNumber: React.PropTypes.number,
    propString: React.PropTypes.string,
    propObject: React.PropTypes.object
-}
+};
 
 PropsValidation.defaultProps = {
    propArray: [1,2,3,4,5],
@@ -52,4 +52,4 @@ PropsValidation.defaultProps = {
       objectName2: "objectValue2",
       objectName3: "objectValue3"
    }
-}
+};

@@ -8,7 +8,7 @@ function todo(state, action) {
          return {
             id: action.id,
             text: action.text,
-         }
+         };
 
       default:
       return state
@@ -25,7 +25,7 @@ function todos(state = [], action) {
          return [
             ...state,
             todo(undefined, action)
-         ]
+         ];
 
       default:
       return state
@@ -34,6 +34,6 @@ function todos(state = [], action) {
 
 const todoApp = combineReducers({
    todos
-})
+});
 
 export default todoApp
