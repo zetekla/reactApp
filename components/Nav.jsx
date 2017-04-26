@@ -25,9 +25,6 @@ export default class Nav extends React.Component {
             <div className="row">
               {this.props.children}
             </div>
-            <div className="wrapper">
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, natus quas? Animi aut consequuntur delectus dolorem eligendi esse exercitationem impedit in incidunt magni maiores, pariatur quo saepe, sed sunt suscipit?</p>
-            </div>
          </div>
       )
    }
