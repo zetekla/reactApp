@@ -9,16 +9,22 @@ export default class Nav extends React.Component {
             <div className="row">
                <ul className="nav nav-pills">
                   <li>
-                     <Link to="/" role="presentation">Main</Link>
+                     <Link to="/" role="presentation">☰</Link>
                   </li>
                   <li>
-                     <Link to="home" role="presentation" activeClassName="active btn btn-primary">Demo</Link>
+                     <Link to="home" role="presentation" activeClassName="active btn btn-primary">Home</Link>
                   </li>
                   <li>
                      <Link to="about" role="presentation" activeClassName="active btn btn-primary">About</Link>
                   </li>
                   <li>
+                     <Link to="store" role="presentation" activeClassName="active btn btn-primary">Store</Link>
+                  </li>
+                  <li>
                      <Link to="contact" role="presentation" activeClassName="active btn btn-primary">Contact</Link>
+                  </li>
+                  <li>
+                     <Link to="animation" role="presentation" activeClassName="active btn btn-primary">Animation</Link>
                   </li>
                </ul>
             </div>
