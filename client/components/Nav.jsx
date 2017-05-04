@@ -26,6 +26,12 @@ export default class Nav extends React.Component {
                   <li>
                      <Link to="animation" role="presentation" activeClassName="active btn btn-primary">Animation</Link>
                   </li>
+                  <li>
+                     <Link to="sample1" role="presentation" activeClassName="active btn btn-primary">Sample1</Link>
+                  </li>
+                  <li>
+                     <Link to="sample2" role="presentation" activeClassName="active btn btn-primary">Sample2</Link>
+                  </li>
                </ul>
             </div>
             <div className="row">
