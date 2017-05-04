@@ -10,11 +10,18 @@ var config = {
       inline: true,
       port: 7777,
       compress: true,
-      historyApiFallback: true,
+      // hot:true,
+      historyApiFallback: {
+        index: 'index.html',
+        rewrites: [
+          { from: /\/soccer/, to: '/soccer.html'}
+        ]
+      },
       contentBase: './client/',
+      // headers: { "XMLHttpRequest": "yes" }, // XMLHttpRequest
       proxy: {
-        '/api/queryfeed': {
-          target: 'https://queryfeed.net/twitter?q=javascript',
+        '/api/twitter': {
+          target: 'https://queryfeed.net/', // localhost:7777/api/twitter?q=javascript & https://queryfeed.net/twitter?q=javascript
           secure: false,
           pathRewrite: {'^/api' : ''},
           changeOrigin: true,
@@ -22,6 +29,13 @@ var config = {
         },
         '/api/posts': {
           target: 'https://jsonplaceholder.typicode.com/',
+          secure: false,
+          pathRewrite: {'^/api' : ''},
+          changeOrigin: true,
+          "logLevel": "info"
+        },
+        '/api/get': {
+          target: 'https://httpbin.org/',
           secure: false,
           pathRewrite: {'^/api' : ''},
           changeOrigin: true,
