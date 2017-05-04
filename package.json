@@ -19,7 +19,8 @@
     "react-router": "^3.0.0",
     "redux": "^3.6.0",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
