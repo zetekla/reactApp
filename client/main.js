@@ -17,7 +17,7 @@ ReactDOM.render((
  		<Router history = {browserHistory}>
       <Route path = "/" component ={App}>
 				<IndexRoute component ={Home} immutableData ="look, I am a props and I am invincible!"/>
-				<Route path = "home" component = {Home} />
+				<Route path = "home" component = {Home} immutableData ="look, I am a props and I am invincible!"/>
 				<Route path = "about" component = {About} />
 				<Route path = "store" component = {TodoUI} />
 				<Route path = "contact" component = {Contact} />
