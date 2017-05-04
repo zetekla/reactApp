@@ -1,8 +1,8 @@
 var config = {
-   entry: './main.js',
+   entry: './client/main.js',
 
    output: {
-      path:'./',
+      path:'./client/',
       filename: 'index.js',
    },
 
@@ -10,7 +10,23 @@ var config = {
       inline: true,
       port: 7777,
       historyApiFallback: true,
-      contentBase: './',
+      contentBase: './client/',
+      proxy: {
+        '/api/queryfeed': {
+          target: 'https://queryfeed.net/twitter?q=javascript',
+          secure: false,
+          pathRewrite: {'^/api' : ''},
+          changeOrigin: true,
+          "logLevel": "info"
+        },
+        '/api/posts': {
+          target: 'https://jsonplaceholder.typicode.com/',
+          secure: false,
+          pathRewrite: {'^/api' : ''},
+          changeOrigin: true,
+          "logLevel": "info"
+        }
+      }
    },
 
    module: {
