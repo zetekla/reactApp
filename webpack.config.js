@@ -9,6 +9,7 @@ var config = {
    devServer: {
       inline: true,
       port: 7777,
+      compress: true,
       historyApiFallback: true,
       contentBase: './client/',
       proxy: {

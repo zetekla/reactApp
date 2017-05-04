@@ -5,7 +5,7 @@ import Nav        from './components/Nav';
 export default class App extends React.Component {
   render() {
     return(
-      <div>
+      <div className="container">
 				<Nav />
 				{this.props.children}
       </div>
