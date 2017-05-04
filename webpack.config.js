@@ -14,11 +14,10 @@ var config = {
       historyApiFallback: {
         index: 'index.html',
         rewrites: [
-          { from: /\/soccer/, to: '/soccer.html'}
+          // { from: /\/soccer/, to: '/soccer.html'}
         ]
       },
       contentBase: './client/',
-      // headers: { "XMLHttpRequest": "yes" }, // XMLHttpRequest
       proxy: {
         '/api/twitter': {
           target: 'https://queryfeed.net/', // localhost:7777/api/twitter?q=javascript & https://queryfeed.net/twitter?q=javascript
