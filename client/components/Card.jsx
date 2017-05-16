@@ -30,6 +30,14 @@ export default class Card extends React.Component {
       .catch(error =>this.setState({ error }))
   }
 
+  addSpinner(){
+    $("#Spinner").addClass("loader");
+  }
+
+  removeSpinner(){
+    $("#Spinner").removeClass("loader");
+  }
+
   render() {
     return (
       <div>
