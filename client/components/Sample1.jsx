@@ -5,6 +5,12 @@ import _      from 'lodash';
 const uri = 'https://api.myjson.com/bins/7ahq1';
 
 const Item = (props) => <li>{props.label}</li>;
+const ModelItem = (props) => <tr>
+    <td>{props.model.label}</td>
+    <td><img src={props.model.modelImages[1].imageUrl} width="150px" height="150px" alt=""/></td>
+    <td>${props.model.startMsrp}</td>
+  </tr>;
+const Footer = () => <h5>automotive website</h5>;
 
 export default class Sample1 extends React.Component {
   constructor(props) {
@@ -43,7 +49,24 @@ export default class Sample1 extends React.Component {
           <Item key={i} label={model.label}/>)
         }</ul>
 
-
+        <table className="table table-striped">
+          <thead>
+          <tr>
+            <th>Label</th>
+            <th>Image</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody>
+          {this.state.models.map((model, i) =>
+            <ModelItem
+              key = {i}
+              model = {model}
+            />)
+          }
+          </tbody>
+        </table>
+        <Footer/>
       </div>
     )
   }
