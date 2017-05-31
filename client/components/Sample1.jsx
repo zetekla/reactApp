@@ -1,5 +1,5 @@
 import React  from 'react';
-import $      from 'jquery';
+import axios  from 'axios';
 import _      from 'lodash';
 
 const uri = 'https://api.myjson.com/bins/7ahq1';
@@ -14,10 +14,10 @@ export default class Sample1 extends React.Component {
   }
 
   componentDidMount(){
-    $.getJSON(uri)
+    axios.get(uri)
       .then(json=>{
         let models = [];
-        json.modelNameDTOs.forEach(model=>{
+        json.data.modelNameDTOs.forEach(model=>{
           models.push(_.pick(model,['label', 'modelImages[1].imageUrl', 'startMsrp']))
         });
         console.log(models);
