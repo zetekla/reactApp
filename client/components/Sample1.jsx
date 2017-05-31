@@ -1,5 +1,5 @@
 import React  from 'react';
-import axios  from 'axios';
+import 'whatwg-fetch';
 import _      from 'lodash';
 
 const uri = 'https://api.myjson.com/bins/7ahq1';
@@ -14,14 +14,15 @@ export default class Sample1 extends React.Component {
   }
 
   componentDidMount(){
-    axios.get(uri)
-      .then(json=>{
+    fetch(uri)
+      .then(response=>{
+        console.log(response, response.json().then(data=>console.log('myData', data)));
         let models = [];
-        json.data.modelNameDTOs.forEach(model=>{
+        response.json().data.modelNameDTOs.forEach(model=>{
           models.push(_.pick(model,['label', 'modelImages[1].imageUrl', 'startMsrp']))
         });
         console.log(models);
-        this.setState({models})
+        return response.json();
       })
       .catch(error =>this.setState({ error }))
   }
