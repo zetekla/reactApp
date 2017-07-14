@@ -8,7 +8,7 @@ const Item = (props) => <li>{props.label}</li>;
 const ModelItem = (props) => <tr>
     <td>{props.model.label}</td>
     <td><img src={props.model.modelImages[1].imageUrl} width="150px" height="150px" alt=""/></td>
-    <td>${props.model.startMsrp}</td>
+    <td>${props.model.startMsrp} MSRP</td>
   </tr>;
 const Footer = () => <h5>automotive website</h5>;
 
