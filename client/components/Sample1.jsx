@@ -22,20 +22,22 @@ export default class Sample1 extends React.Component {
   }
 
   componentDidMount(){
-    axios.get(uri)
-      .then(response=>{
-        let models = [];
-        response.data.modelNameDTOs.forEach(model=>{
-          models.push(_.pick(model,['label', 'modelImages[1].imageUrl', 'startMsrp']))
-        });
-        this.setState({models});
-      })
-      .catch(error=>this.setState({ error }))
+    if(this.refs.sample1Root){
+      axios.get(uri)
+        .then(response=>{
+          let models = [];
+          response.data.modelNameDTOs.forEach(model=>{
+            models.push(_.pick(model,['label', 'modelImages[1].imageUrl', 'startMsrp']))
+          });
+          this.setState({models});
+        })
+        .catch(error=>this.setState({ error }))
+    }
   }
 
   render() {
     return (
-      <div>
+      <div ref="sample1Root">
         <h1>Sample1 - Listing...</h1>
         <h3>Listing by dropdown</h3>
         <select>
