@@ -1,5 +1,5 @@
 import React from 'react';
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../styles/style.css';
 
 export default class Animation extends React.Component {
@@ -14,18 +14,18 @@ export default class Animation extends React.Component {
   };
 
   handleAdd() {
-    var newItems = this.state.items.concat([prompt('Create New Item')]);
+    let newItems = this.state.items.concat([prompt('Create New Item')]);
     this.setState({items: newItems});
   }
 
   handleRemove(i) {
-    var newItems = this.state.items.slice();
+    let newItems = this.state.items.slice();
     newItems.splice(i, 1);
     this.setState({items: newItems});
   }
 
   render() {
-    var items = this.state.items.map(function (item, i) {
+    let items = this.state.items.map(function (item, i) {
       return (
         <div key={item} onClick={this.handleRemove.bind(this, i)}>
           {item}
