@@ -1,19 +1,15 @@
 import React from 'react';
 
-export default class ButtonLineUp extends React.Component {
-   render() {
-      return (
-         <div>
-            <h1>Buttons sampling...</h1>
-            <Buttons>
-               <button value="A">A</button>
-               <button value="B">B</button>
-               <button value="C">C</button>
-            </Buttons>
-         </div>
-      )
-   }
-}
+const ButtonLineUp = () => (<div>
+    <h1>Buttons sampling...</h1>
+    <Buttons>
+       <button value="A">A</button>
+       <button value="B">B</button>
+       <button value="C">C</button>
+    </Buttons>
+</div>);
+
+export default ButtonLineUp;
 
 class Buttons extends React.Component {
   constructor(){
