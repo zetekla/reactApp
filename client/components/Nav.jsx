@@ -35,6 +35,9 @@ export default class Nav extends React.Component {
                   <li>
                      <Link to="card" role="presentation" activeClassName="active btn btn-primary">Card</Link>
                   </li>
+                  <li>
+                     <Link to="btnLineUp" role="presentation" activeClassName="active btn btn-primary">ButtonLineUp</Link>
+                  </li>
                </ul>
             </div>
             <div className="row">
